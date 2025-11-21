@@ -26,7 +26,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -38,10 +37,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.pjasoft.recipeapp.domain.utils.Preferences
-import com.pjasoft.recipeapp.ui.RecipeTheme
+import com.pjasoft.recipeapp.ui.theme.RecipeTheme
 import com.pjasoft.recipeapp.ui.Screens.HomeScreenRoute
 import com.pjasoft.recipeapp.ui.Screens.LoginScreenRoute
-import com.pjasoft.recipeapp.ui.Screens.MainScreenRoute
 import com.pjasoft.recipeapp.ui.Screens.RegisterScreenRoute
 import com.pjasoft.recipeapp.ui.viewModels.AuthViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview

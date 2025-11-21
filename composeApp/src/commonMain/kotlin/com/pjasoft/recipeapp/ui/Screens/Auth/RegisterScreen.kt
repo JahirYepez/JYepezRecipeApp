@@ -34,7 +34,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.pjasoft.recipeapp.ui.RecipeTheme
+import com.pjasoft.recipeapp.ui.theme.RecipeTheme
 import com.pjasoft.recipeapp.ui.Screens.MainScreenRoute
 import com.pjasoft.recipeapp.ui.Screens.RegisterScreenRoute
 import com.pjasoft.recipeapp.ui.viewModels.AuthViewModel

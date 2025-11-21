@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -29,11 +28,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.pjasoft.recipeapp.domain.dtos.RecipeDTO
-import com.pjasoft.recipeapp.domain.models.Recipe
-import com.pjasoft.recipeapp.ui.RecipeTheme
+import com.pjasoft.recipeapp.ui.theme.RecipeTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun GeneratedRecipe(recipe: RecipeDTO?, textButton: String, onClick: () -> Unit){
