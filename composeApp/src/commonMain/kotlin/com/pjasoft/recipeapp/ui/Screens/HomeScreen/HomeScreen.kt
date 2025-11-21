@@ -159,7 +159,10 @@ fun HomeScreen(navController: NavController){
 
         item {
             Text(
-                text = "Tus recetas recientes"
+                text = "Tus recetas recientes",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold
+                )
             )
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
@@ -199,7 +202,10 @@ fun HomeScreen(navController: NavController){
             Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = "Ideas Rapidas"
+                text = "Ideas Rapidas",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold,
+                )
             )
             Spacer(modifier = Modifier.height(10.dp))
 
@@ -237,7 +243,8 @@ fun HomeScreen(navController: NavController){
             ) {
                 Column {
                     Text(
-                        text = "No sabes que cocinar hoy?"
+                        text = "No sabes que cocinar hoy?",
+                        fontWeight = FontWeight.Bold
                     )
                     Text(
                         text = "Genera una receta aleatoria"
@@ -250,6 +257,13 @@ fun HomeScreen(navController: NavController){
             }
             Spacer(modifier = Modifier.height(8.dp))
 
+            Text(
+                text = "Todas tus recetas",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold
+                )
+            )
+            Spacer(modifier = Modifier.height(8.dp))
         }
 
         //todas las recetas
