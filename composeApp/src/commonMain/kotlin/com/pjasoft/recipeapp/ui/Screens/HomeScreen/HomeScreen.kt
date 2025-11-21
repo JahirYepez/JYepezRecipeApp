@@ -301,48 +301,28 @@ fun HomeScreen(navController: NavController){
             sheetState = sheetState
         )
         {
-            val recipe = RecipeDTO(
-                category = "Mexicana",
-                imageUrl = "https://images.unsplash.com/photo-1613585435238-5577aa11505f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTg0MDZ8MHwxfHNlYXJjaHw4fHxUb3N0YWRhc3xlbnwwfHx8fDE3NjA5MTU5NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-                ingredients = listOf(
-                    "ajo",
-                    "jamón",
-                    "jitomate",
-                    "cebolla",
-                    "queso",
-                    "pan",
-                    "aguacate",
-                    "aceite de oliva",
-                    "sal",
-                    "azúcar",
-                    "agua",
-                    "pimienta negra"
-                ),
-                instructions = listOf(
-                    "Reúne y prepara: pica finamente 1 diente de ajo, pica 1/2 cebolla en cubos pequeños, corta 1 jitomate en cubos pequeños, corta el jamón en tiras o cuadros, ralla o corta el queso en láminas, rebana el pan y corta el aguacate en láminas.",
-                    "Precalienta una sartén a fuego medio-alto o el grill del horno. Unta ligeramente las rebanadas de pan con aceite de oliva.",
-                    "Tuesta las rebanadas de pan en la sartén o grill hasta que estén doradas y crujientes por ambos lados (2–4 minutos). Si quieres, frota cada rebanada con el diente de ajo partido para aromatizar.",
-                    "En la misma sartén, añade 1 cucharada de aceite de oliva y sofríe el ajo picado 30 segundos hasta que desprenda aroma; añade la cebolla y cocina 2–3 minutos hasta que esté translúcida.",
-                    "Incorpora el jamón al sartén y saltea 2–3 minutos más hasta que tome un ligero dorado. Ajusta con sal y pimienta al gusto (ten en cuenta que el jamón puede ser salado).",
-                    "Mientras se cocina, mezcla el jitomate con una pizca de sal, una pizca pequeña de azúcar y una o dos cucharaditas de agua para suavizar la acidez; deja reposar 1 minuto.",
-                    "Monta las tostadas: sobre cada rebanada de pan tostado coloca una capa del salteado de jamón y cebolla, añade encima el jitomate preparado, luego el queso y finalmente las láminas de aguacate.",
-                    "Si deseas queso fundido, coloca las tostadas montadas bajo el grill 2–3 minutos hasta que el queso se derrita ligeramente.",
-                    "Termina con un chorrito pequeño de aceite de oliva y una última pizca de sal y pimienta al gusto. Sirve inmediatamente."
-                ),
-                minutes = 20,
-                stars = 3,
-                title = "Tostadas rústicas de jamón, aguacate y queso",
-                prompt = ""
-            )
-            GeneratedRecipe(
-                recipe = viewModel.generatedRecipe,
-                onSave = {
+            var textButton = "Cerrar"
+            var onclick: () -> Unit = {
+                scope.launch {
+                    viewModel.hideModal()
+                    sheetState.hide()
+                }
+            }
+            if (viewModel.isGenerated){
+                textButton = "Guardar"
+                onclick = {
                     scope.launch {
                         viewModel.hideModal()
                         sheetState.hide()
                     }
                     viewModel.saveRecipeInDb()
                 }
+            }
+
+            GeneratedRecipe(
+                recipe = viewModel.generatedRecipe,
+                textButton = textButton,
+                onClick = onclick
             )
         }
     }

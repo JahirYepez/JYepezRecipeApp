@@ -39,7 +39,7 @@ fun Header(onLoguot: () -> Unit){
                 fontWeight = FontWeight.Light
             )
             Text(
-                text = "Tu nombre",
+                text = "Jahir",
                 fontWeight = FontWeight.Bold
             )
         }// fin del column
@@ -51,7 +51,7 @@ fun Header(onLoguot: () -> Unit){
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "A"
+                text = "J"
             )
         }//fin del box
         Spacer(
