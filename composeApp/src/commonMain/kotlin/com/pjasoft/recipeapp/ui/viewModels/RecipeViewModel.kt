@@ -41,6 +41,7 @@ class RecipeViewModel : ViewModel() {
     fun generateRecipe(prompt: Prompt){
         viewModelScope.launch {
             try {
+                isGenerated = true
                 isLoading = true
                 val result = recipeService.generateRecipe(prompt)
                 showSheet = true
@@ -49,6 +50,7 @@ class RecipeViewModel : ViewModel() {
             }
             catch (e : Exception){
                 showSheet = false
+                isGenerated = false
                 println(e.toString())
             }
             finally {
@@ -60,12 +62,16 @@ class RecipeViewModel : ViewModel() {
     fun getRecipes(){
         viewModelScope.launch {
             try {
+                isLoading = true
                 val result = recipeService.getRecipesByUserId(userId)
                 recipes = result.takeLast(5).reversed()
                 println(result.toString())
             }
             catch (e : Exception){
                 println(e.toString())
+            }
+            finally {
+                isLoading = false
             }
         }
     }
@@ -88,6 +94,9 @@ class RecipeViewModel : ViewModel() {
                 print(result.toString())
             }catch (e: Exception){
                 println(e.toString())
+            }
+            finally {
+                getRecipes()
             }
         }
     }
